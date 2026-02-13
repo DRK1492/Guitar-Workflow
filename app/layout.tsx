@@ -21,7 +21,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gruved",
+  title: "Gruves",
   description: "Track songs, setlists, notes, and practice resources.",
 };
 
@@ -41,7 +41,7 @@ export default function RootLayout({
           <header className="app-header">
             <div className="app-header-inner">
               <Link href="/" className="app-brand">
-                Gruved
+                Gruves
               </Link>
               <div className="app-header-actions">
                 <nav className="app-nav">

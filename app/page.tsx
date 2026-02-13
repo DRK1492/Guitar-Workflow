@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <div className="page flex items-center justify-center min-h-screen">
       <main className="card p-8 w-full max-w-xl text-center">
-        <p className="label mb-3">Gruved</p>
+        <p className="label mb-3">Gruves</p>
         <h1 className="text-3xl font-semibold tracking-tight mb-3">
           Build setlists, track songs, and keep your notes in one place.
         </h1>
