@@ -169,6 +169,7 @@ export default function SongDetailPage() {
   const skipPdfRowClickRef = useRef(false)
   const pdfPreviewRef = useRef<HTMLDivElement | null>(null)
   const youtubePreviewRef = useRef<HTMLDivElement | null>(null)
+  const songHeaderCardRef = useRef<HTMLDivElement | null>(null)
   const [selectedSetlistId, setSelectedSetlistId] = useState<string>('')
 
   const effectiveActiveLinkTabId = useMemo(() => {
@@ -1154,6 +1155,32 @@ export default function SongDetailPage() {
     }
   }
 
+  const cancelSongEdit = () => {
+    if (!song) return
+    setIsEditing(false)
+    setEditTitle(song.title || '')
+    setEditArtist(song.artist || '')
+    setEditStatus(song.status || 'learning')
+    setSelectedGenreIds(songGenres.map(g => g.genre_id))
+    setSaveError('')
+    setGenreError('')
+    setNewGenreName('')
+  }
+
+  useEffect(() => {
+    if (!isEditing) return
+
+    const handleOutsideEditClick = (event: MouseEvent) => {
+      const target = event.target as Node | null
+      if (!target) return
+      if (songHeaderCardRef.current?.contains(target)) return
+      cancelSongEdit()
+    }
+
+    document.addEventListener('mousedown', handleOutsideEditClick)
+    return () => document.removeEventListener('mousedown', handleOutsideEditClick)
+  }, [isEditing, song, songGenres])
+
 
   const handleSaveSong = async () => {
     if (!song || !session?.user?.id) return
@@ -1253,7 +1280,7 @@ export default function SongDetailPage() {
 
       <div>
         {/* Song Header */}
-        <div className="card p-6 mb-6">
+        <div className="card p-6 mb-6" ref={songHeaderCardRef}>
         {!isEditing ? (
           <>
             <p className="label mb-2">Song</p>
@@ -1265,7 +1292,7 @@ export default function SongDetailPage() {
                 {songGenres.map(g => (
                   <span
                     key={g.genre_id}
-                    className="badge"
+                    className="genre-pill"
                   >
                     {g.genres?.name ?? 'Unknown'}
                   </span>
@@ -1331,7 +1358,7 @@ export default function SongDetailPage() {
               onChange={e => setEditStatus(e.target.value)}
               className="input w-full"
             >
-              <option value="known">Known</option>
+              <option value="confident">Confident</option>
               <option value="learning">Learning</option>
               <option value="wishlist">Wishlist</option>
             </select>
@@ -1383,14 +1410,7 @@ export default function SongDetailPage() {
                 {savingSong ? 'Saving...' : 'Save'}
               </button>
               <button
-                onClick={() => {
-                  setIsEditing(false)
-                  setEditTitle(song.title || '')
-                  setEditArtist(song.artist || '')
-                  setEditStatus(song.status || 'learning')
-                  setSelectedGenreIds(songGenres.map(g => g.genre_id))
-                  setSaveError('')
-                }}
+                onClick={cancelSongEdit}
                 className="button-ghost"
               >
                 Cancel

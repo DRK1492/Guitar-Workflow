@@ -66,7 +66,7 @@ export default function AuthPage() {
       setMessage(`Error: ${error.message}`)
     } else {
       setMessage(`✅ Logged in as ${data.user?.email ?? email}`)
-      router.push('/songs')
+      router.push('/')
     }
   }
   return (

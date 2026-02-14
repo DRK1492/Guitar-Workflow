@@ -20,7 +20,7 @@ export default function AuthCallbackPage() {
         await supabase.auth.verifyOtp({ token_hash: tokenHash, type: type as 'signup' | 'recovery' | 'invite' | 'magiclink' | 'email_change' })
       }
 
-      router.replace('/songs')
+      router.replace('/')
     }
 
     void run()

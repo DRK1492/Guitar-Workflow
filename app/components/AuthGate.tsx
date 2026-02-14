@@ -22,8 +22,8 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
 
       if (!session && !isPublic) {
         router.replace('/')
-      } else if (session && isPublic) {
-        router.replace('/songs')
+      } else if (session && pathname.startsWith('/auth')) {
+        router.replace('/')
       }
 
       setChecking(false)
