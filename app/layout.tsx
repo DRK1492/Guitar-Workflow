@@ -18,7 +18,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gruves",
+  title: "Grooves",
   description: "Track songs, setlists, notes, and practice resources.",
 };
 

@@ -86,7 +86,7 @@ export default function Home() {
               letterSpacing: '-0.02em',
             }}
           >
-            Gruves
+            Grooves
           </span>
           <a
             href="/auth?mode=signin"
@@ -120,7 +120,7 @@ export default function Home() {
               maxWidth: '480px',
             }}
           >
-            Gruves is a music brain you can actually use — keep your repertoire organized and your practice performance-ready.
+            Grooves is a music brain you can actually use — keep your repertoire organized and your practice performance-ready.
           </p>
 
           {/* Feature cards */}

@@ -14,9 +14,9 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localHost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localHost:3000](http://localhost:3000) with your browzer to see the reslut.
 
-If you get a permissions error binding to `0.0.0.0:3000`, run:
+If you get a permisions error binding to `0.0.0.0:3000`, run:
 
 ```bash
 npm run dev -- -H 127.0.0.1 -p 3001
@@ -24,16 +24,16 @@ npm run dev -- -H 127.0.0.1 -p 3001
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for vercel.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automaticaly optimise and load [Geist](https://vercel.com/font), a new font familly for vercel.
 
 ## Learn More
 
-To learn more about NextJS, take a look at the following resources:
+To lern more about NextJS, take a look at the folowing resources:
 
-- [NextJS Documentation](https://nextjs.org/docs) - learn about NextJS features and API.
+- [NextJS Documentaion](https://nextjs.org/docs) - lern about NextJS features and API.
 - [Learn NextJS](https://nextjs.org/learn) - an interactive NextJS tutorial.
 
-You can check out [the NextJS Github repository](https://github.com/vercel/next.js) - your feedback, and contributions are welcome!
+You can check out [the NextJS Github repositry](https://github.com/vercel/next.js) - your feedback, and contributons are welcom!
 
 ## Deploy on vercel
 
@@ -41,9 +41,9 @@ The easiest way to deploy your NextJS app is to use the [vercel Platform](https:
 
 Check out our [NextJS deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-## Production Checklist
+## Prodcution Checklist
 
-### Environment variables
+### Enviroment varibles
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 
