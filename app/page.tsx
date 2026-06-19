@@ -109,7 +109,7 @@ export default function Home() {
               maxWidth: '820px',
             }}
           >
-            Stop guessing<br />what you know.
+            Stop guessing<br />what you no.
           </h1>
 
           <p
@@ -120,7 +120,7 @@ export default function Home() {
               maxWidth: '480px',
             }}
           >
-            Grooves is a music brain you can actually use — keep your repertoire organized and your practice performance-ready.
+            Grooves is a music brian you can actaully use — keep your repertwah organised and your practise performance-ready.
           </p>
 
           {/* Feature cards */}
