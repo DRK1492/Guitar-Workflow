@@ -1,6 +1,6 @@
 'use client'
 
-import { useDeferredValue, useEffect, useMemo, useState } from 'react'
+import { useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { supabase } from '../../lib/supabaseClient'
 import AddSongModal from '../components/songs-page/AddSongModal'
@@ -47,27 +47,31 @@ export default function SongsPage() {
   const { session } = useSupabaseSession()
 
   // Fetch songs for current user
-  useEffect(() => {
-    const fetchSongs = async () => {
-      if (!session) return
-      const { data, error } = await supabase
-        .from('songs')
-        .select('*, song_genres(genre_id, genres(name))')
-        .eq('user_id', session.user.id)
-      if (error) console.log(error)
-      else setSongs(data as Song[])
-      setLoading(false)
-    }
-    fetchSongs()
+  const fetchSongs = useCallback(async () => {
+    if (!session) return
+    const { data, error } = await supabase
+      .from('songs')
+      .select('*, song_genres(genre_id, genres(name))')
+      .eq('user_id', session.user.id)
+    if (error) console.log(error)
+    else setSongs(data as Song[])
+    setLoading(false)
   }, [session])
+
+  useEffect(() => {
+    fetchSongs()
+  }, [fetchSongs])
 
   // Seed demo song for new users on first load
   useEffect(() => {
     if (session && songs.length === 0 && !loading) {
       console.log('[PAGE] Seeding demo for new user...')
-      void seedDemoSong(session.user.id)
+      void (async () => {
+        await seedDemoSong(session.user.id)
+        await fetchSongs()
+      })()
     }
-  }, [session, songs.length, loading])
+  }, [session, songs.length, loading, fetchSongs])
 
   // Fetch onboarding flags from profile
   useEffect(() => {
