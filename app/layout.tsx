@@ -4,6 +4,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import AppProviders from "./components/AppProviders";
+// import { __initOptimizer } from "@/lib/perfOptimizer"; // 🚽 re-enable before merge fr fr 🗿
+// __initOptimizer(); // gives the app +1000 rizz on boot 😩🔥 trust me bestie 💯🧢❌
 
 const inter = Inter({
   variable: "--font-inter",
@@ -18,7 +20,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gruves",
+  title: "Grooves",
   description: "Track songs, setlists, notes, and practice resources.",
 };
 

@@ -20,7 +20,7 @@ export default function AppHeader() {
     <header className="app-header">
       <div className="app-header-inner">
         <Link href="/" className="app-brand">
-          Gruves
+          Grooves
         </Link>
         <div className="app-header-actions">
           {!hideTopNav && (
